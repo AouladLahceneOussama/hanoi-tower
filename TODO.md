@@ -1,0 +1,2 @@
+- Add game over screen
+- Add auto solution

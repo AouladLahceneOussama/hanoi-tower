@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Hanoi Tower</title>
+</head>
+
+<body>
+    <section class="container">
+        <div class="tower-container">
+            <div class="tower" id="tower-1" data-type="TOWER"></div>
+            <div class="tower" id="tower-2" data-type="TOWER"></div>
+            <div class="tower" id="tower-3" data-type="TOWER"></div>
+        </div>
+        <div class="settings">
+            <div class="settings__item">
+                <label for="disksNumber"><i class="fa-solid fa-database"></i></label>
+                <input type="number" id="disksNumber">
+            </div>
+            <div class="settings__item">
+                <i class="fa-solid fa-up-down-left-right"></i>
+                <span id="movesCount">0</span>
+            </div>
+            <div class="settings__action">
+                <div class="action" id="reset">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </div>
+                <div class="action" id="start">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="script/main.js" type="module"></script>
+</body>
+
+</html>
