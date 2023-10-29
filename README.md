@@ -1,5 +1,7 @@
 # Hanoi Tower Game
 
-Hanoi tower game developed using Javascript
+Hanoi tower game developed using Javascript, from 3 to 8 disks challenge.
+Enjoy it!
 
-![image](https://user-images.githubusercontent.com/62432095/226171802-ee16a65d-db14-4b88-bef3-c464859f7717.png)
+![image](https://github.com/AouladLahceneOussama/hanoi-tower/assets/62432095/33598048-f7fa-420f-bcd3-0575f1f2ca4e)
+
