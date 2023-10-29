@@ -2,29 +2,7 @@ export class EventHandler {
 
     constructor(game) {
         this.game = game;
-        // this.towers = game.getTowers();
-        // this.ui = ui;
     }
-
-    // init() {
-    //     $('body').on("dragover", (event) => this.dragOverPrevent(event));
-    //     $('body').on("drop", (event) => this.dropInBody(event));
-
-    //     this.towers.forEach(tower => {
-    //         $("#tower-" + tower.id).on("dragover", (event) => this.dragOverPrevent(event));
-    //         $("#tower-" + tower.id).on("drop", (event) => this.drop(event, $("#tower-" + tower.id)));
-
-    //         if (tower.type == 'START') {
-    //             let disks = tower.getDisks();
-    //             for (let i = 0; i < disks.length; i++) {
-
-    //                 let disk = disks[i];
-    //                 $("#disk-" + disk.id).on("dragstart", (event) => this.dragStart(event));
-    //                 $("#disk-" + disk.id).on("dragover", (event) => this.dragOverPrepend(event));
-    //             }
-    //         }
-    //     });
-    // }
 
     addEventToBody(){
         $('body').on("dragover", (event) => this.dragOverPrevent(event));
@@ -69,9 +47,6 @@ export class EventHandler {
         if(!canMove) return;
 
         element.prepend(disk);
-
-        // this.ui.updateTowers();
-        // this.ui.updateMovesCounter();
         callback.forEach(cb => cb());
 
         return;

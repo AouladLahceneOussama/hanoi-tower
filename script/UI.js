@@ -3,6 +3,11 @@ export class UI {
         this.game = game;
         this.settings = settings;
         this.eventHandler = eventHandler;
+
+        this.timerIntervalId = null
+        document.addEventListener('gameover', () => {
+            this.showGameOverPopup();
+        });
     }
 
     init() {
@@ -10,6 +15,7 @@ export class UI {
         this.initSettings();
         this.initTowers();
         this.initButtons();
+        this.initTimer();
     }
 
     initBody() {
@@ -31,7 +37,7 @@ export class UI {
             $("#tower-" + tower.id).empty();
 
             this.eventHandler.addEventToTower(tower, towers, this.updateTowers.bind(this), this.updateMovesCounter.bind(this));
-            
+
             const disks = tower.getDisks();
             for (let j = 0; j < disks.length; j++) {
                 const disk = disks[j];
@@ -48,6 +54,10 @@ export class UI {
                 this.eventHandler.addEventToDisk(disk);
             }
         }
+    }
+
+    initTimer() {
+        this.timerIntervalId = setInterval(() => $('#timer').html(this.game.handleTimer()), 1000);
     }
 
     updateTowers() {
@@ -75,6 +85,7 @@ export class UI {
         $('#start').click(() => this.start())
         $('#reset').click(() => this.reset())
         $('#disksNumber').on('change', () => this.updateSettings())
+        $('#gameover').on('click', () => this.hideGameOverAndRestart())
     }
 
     start() {
@@ -85,11 +96,40 @@ export class UI {
         this.game.reset();
         this.initTowers();
         this.updateMovesCounter();
+        this.resetTimer();
+    }
+
+    resetTimer() {
+        clearInterval(this.timerIntervalId)
+        $('#timer').html(this.game.handleTimer());
+        this.initTimer()
     }
 
     updateSettings() {
         const disksNumber = $('#disksNumber').val();
         this.settings.updateSettings(disksNumber);
         this.reset();
+    }
+
+    showGameOverPopup() {
+        $('.game-over-container').css({
+            "opacity": "100%",
+            "visibility": "INITIAL"
+        });
+
+        $("#score_timing").html(this.game.timer);
+        $("#score_moves").html(this.game.moves);
+    }
+
+    hideGameOverAndRestart() {
+        $('.game-over-container').css({
+            "opacity": "0%",
+            "visibility": "hidden"
+        });
+
+        $("#score_timing").html("00:00:00");
+        $("#score_moves").html(0);
+
+        this.reset()
     }
 }

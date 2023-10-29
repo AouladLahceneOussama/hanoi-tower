@@ -17,8 +17,15 @@ export class Tower {
         if (this.type != 'START') return;
 
         let disksNumber = this.settings.getDisksNumber();
+        let pickedColors = [];
+
         for (let i = 0; i < disksNumber; i++) {
-            let randomColor = Tower.colors[Math.floor(Math.random() * Tower.colors.length)];
+            let randomColor
+            do {
+                randomColor = Tower.colors[Math.floor(Math.random() * Tower.colors.length)];
+            } while (pickedColors.includes(randomColor))
+
+            pickedColors.push(randomColor)
             this.disks.push(new Disk(i, this.id, randomColor, 100 - (i * (100 / disksNumber-1)), i == disksNumber - 1 ? true : false));
         }
     }

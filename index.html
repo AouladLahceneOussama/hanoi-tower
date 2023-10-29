@@ -25,13 +25,24 @@
                 <i class="fa-solid fa-up-down-left-right"></i>
                 <span id="movesCount">0</span>
             </div>
+            <div class="settings__timer" id="timer">
+                <div>
+                    00:00:00
+                </div>
+            </div>
             <div class="settings__action">
                 <div class="action" id="reset">
                     <i class="fa-solid fa-arrows-rotate"></i>
                 </div>
-                <div class="action" id="start">
-                    <i class="fa-solid fa-play"></i>
-                </div>
+            </div>
+        </div>
+        <div class="game-over-container">
+            <div class="game-over-content">
+                <h1>Game Over</h1>
+                <p id="congratulations-message">Congratulations! You've completed the game.</p>
+                <p>Time Taken: <span id="score_timing">XX:XX</span></p>
+                <p>Moves Taken: <span id="score_moves">XX</span></p>
+                <button id="gameover">Close and Restart</button>
             </div>
         </div>
     </section>

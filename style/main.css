@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container {
@@ -73,20 +74,17 @@
 .settings {
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 2;
     color: rgb(168, 165, 165);
-}
-
-.settings .settings__item {
-    margin: 10px 0;
+    display: flex;
 }
 
 .settings .settings__item label {
     background-color: transparent;
     font-size: 13px;
     font-weight: bold;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .settings .settings__item input {
@@ -98,16 +96,20 @@
     font-weight: bold;
 }
 
+.settings .settings__timer {
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
 .settings .settings__action {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 20px;
     gap: 10px;
 }
 
 .settings .settings__action .action {
-    margin: 10px 0;
+    margin: 0 5px;
     font-weight: bold;
     font-size: 18px;
     cursor: pointer;
@@ -116,4 +118,55 @@
 
 .settings .settings__action .action:hover {
     color: #ac4819;
+}
+
+.game-over-container {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-over-content {
+    background-color: #544e77;
+    width: 50%;
+    margin: 100px auto;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.game-over-content h1 {
+    color: #ac4819;
+    font-size: 30px;
+}
+
+.game-over-content p {
+    font-size: 18px;
+}
+
+.game-over-content  #congratulations-message {
+    margin: 20px 0;
+}
+
+.game-over-content #score_timing, #score_moves {
+    font-weight: bold;
+    color: #008000;
+}
+
+.game-over-content button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #ac4819;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
 }
